@@ -1,8 +1,30 @@
 import logging
 logging.basicConfig(level = logging.DEBUG)
 
-def calculate():
 
+def calculateV2():
+    #user input a number
+    print("Enter number of investments you made")
+    numOfInvestments = int(input())
+    count = 1
+
+    #Make an empty List
+    investmentList = [numOfInvestments]
+
+    # while loop from 1 to = number
+    while(count <= numOfInvestments):
+        print("Enter investment number " + str(int(count)))
+        investment = int(input())
+        investmentList.append(investment)
+        count+=1
+    print(investmentList)
+
+
+
+logging.debug(calculateV2())
+
+
+def calculate():
     print("Hello! How much money did you invest into bitcoin?")
     investment = int(input())
     print("At was price?")
@@ -14,11 +36,12 @@ def calculate():
     currValue = ((percentage) * investment) + investment
 
     if(currValue > investment):
-        print("You're current bitcoin is worth: " + str(float(currValue)) + " currently a net profit")
+        print("You're current bitcoin is worth: " + str(float(currValue)) + " Currently a net profit!")
     elif(currValue == investment):
-        print("You're current bitcoin is worth: " + str(float(currValue)) + " You broke even!")
+        print("You're current bitcoin is worth: " + str(float(currValue)) + " You broke even.")
     else:
-        print("You're current bitcoin is worth: " + str(float(currValue)) + "currently a net loss")
+        print("You're current bitcoin is worth: " + str(float(currValue)) + " Currently a net loss.")
+
 
 
 def findPercentage(initialPrice,finalPrice):
@@ -26,5 +49,4 @@ def findPercentage(initialPrice,finalPrice):
     perc = (decrease/initialPrice) # I have to fix the math here, i assume!
     return perc
 
-logging.debug(calculate())
-#logging.debug(findPercentage(9784,10236))
+#calculate()
