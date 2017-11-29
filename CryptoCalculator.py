@@ -17,11 +17,11 @@ def calculateV2():
         investment = int(input())
         investmentList.append(investment)
         count+=1
-    print(investmentList)
 
 
 
-logging.debug(calculateV2())
+
+#logging.debug(calculateV2())
 
 
 def calculate():
@@ -48,5 +48,17 @@ def findPercentage(initialPrice,finalPrice):
     decrease = float(finalPrice) - float(initialPrice)
     perc = (decrease/initialPrice) # I have to fix the math here, i assume!
     return perc
+
+def getAverage(*list):
+    sum = 0
+    counter = 0
+    for x in list:
+        counter += 1
+        sum += x
+    return sum/counter
+    
+#logging.debug(getAverage(5,66,2))
+
+
 
 #calculate()
