@@ -10,34 +10,21 @@ def calculate():
     print("What is the current price of bitcoin") #Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
     finalPrice = int(input())
 
-    percentage = (initialPrice,finalPrice)
+    percentage = findPercentage(initialPrice,finalPrice)
+    currValue = ((percentage) * investment) + investment
+
+    if(currValue > investment):
+        print("You're current bitcoin is worth: " + str(float(currValue)) + " currently a net profit")
+    elif(currValue == investment):
+        print("You're current bitcoin is worth: " + str(float(currValue)) + " You broke even!")
+    else:
+        print("You're current bitcoin is worth: " + str(float(currValue)) + "currently a net loss")
 
 
-
-
-    currValue = percentage * investment
-
-
-    logging.debug(initialPrice)
-    logging.debug(finalPrice)
-    logging.debug(percentage) #Returns a tuple, which we don't want!
-    logging.debug(currValue)
-
-    #if(currValue > investment):
-       # print("You're current bitcoin is worth: " + currValue + " currently a net profit")
-    #elif(currValue == investment):
-      #  print("You're current bitcoin is worth: " + currValue + " You broke even!")
-    #else:
-     #   print("You're current bitcoin is worth: " + currValue + "currently a net loss")
-
-
-
-
-
-def percentage(initalPrice,finalPrice):
+def findPercentage(initalPrice,finalPrice):
     decrease = float(finalPrice) - float(initalPrice)
-    percentage = (decrease/initalPrice) * 100.0 # I have to fix the math here, i assume!
-    return percentage
-
+    perc = (decrease/initalPrice) # I have to fix the math here, i assume!
+    return perc
 
 logging.debug(calculate())
+#logging.debug(findPercentage(9784,10236))
