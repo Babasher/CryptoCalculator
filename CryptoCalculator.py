@@ -1,6 +1,17 @@
 import logging
 logging.basicConfig(level = logging.DEBUG)
 
+def calculate():
+
+    print("Hello! How much money did you invest into bitcoin?")
+    investment = int(input())
+    print("At was price?")
+    initialPrice = int(input())
+    print("What is the current price of bitcoin")
+    finalPrice = int(input())
+
+    percentage = (initialPrice,finalPrice)
+    
 
 
 
