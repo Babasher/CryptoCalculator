@@ -21,9 +21,9 @@ def calculate():
         print("You're current bitcoin is worth: " + str(float(currValue)) + "currently a net loss")
 
 
-def findPercentage(initalPrice,finalPrice):
-    decrease = float(finalPrice) - float(initalPrice)
-    perc = (decrease/initalPrice) # I have to fix the math here, i assume!
+def findPercentage(initialPrice,finalPrice):
+    decrease = float(finalPrice) - float(initialPrice)
+    perc = decrease/initialPrice # I have to fix the math here, i assume!
     return perc
 
 logging.debug(calculate())
