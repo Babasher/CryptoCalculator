@@ -6,33 +6,45 @@ def calculateV2():
     print("Enter number of investments you made")
     numOfInvestments = int(input())
     count = 1
-    # Make an empty List
 
+    # Make an empty List
     cryptoPriceList = []
-    print("cryptoPriceList: " + str(cryptoPriceList))
+    #Commenting out test code; print("cryptoPriceList: " + str(cryptoPriceList))
     investmentList = []
-    print("Investment List: " + str(investmentList))
+    #Commenting out test code; print("Investment List: " + str(investmentList))
+
+
     # while loop from 1 to = number
     while (count <= numOfInvestments):
         print("What was the price of the Crypto currency at investment number " + str(int(count)))
         cryptoPrice = float(input())
-        print("cryptoPrice:" + str(cryptoPrice))
+        #print("cryptoPrice:" + str(cryptoPrice)) #NOT SURE IF YOU WANTED TO KEEP THIS IN FINAL PRODUCT OR NOT
         cryptoPriceList.append(cryptoPrice)
-        print("PriceList Append:" + str(cryptoPriceList.append(cryptoPrice)))
+        #Commenting out test code; print("PriceList Append:" + str(cryptoPriceList.append(cryptoPrice)))
         print("How much did you invest at investment number " + str(int(count)))
         userInvestment = float(input())
-        print("User Investment: " + str(userInvestment))
+        #print("User Investment: " + str(userInvestment)) #(NOT SURE IF YOU WANTED TO KEEP THIS IN FINAL PRODUCT OR NOT)
         investmentList.append(userInvestment)
-        print("Investment List Append: " + str(investmentList.append(userInvestment)))
+        #Commenting out test code; print("Investment List Append: " + str(investmentList.append(userInvestment)))
         count += 1
+
+    print()
+
     #get the average from the lists
+    print("CRYPTO PRICES")
     aveCryptoPrice = getAverage(cryptoPriceList)
     print("Average Crypto Price: " + str(aveCryptoPrice))
+    print()
+
+    print("YOUR INVESTMENTS")
     aveUserInvestments = getAverage(investmentList)
     print("Average User Investments: " + str(aveUserInvestments))
+    print()
+
     print(
         "What is the current price of Bitcoin?")  # Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
     finalPrice = float(input())
+    print()
     print("Final Price: ${:,.2f}".format(finalPrice))
     percentage = findPercentage(aveCryptoPrice, finalPrice)
     print("Percentage Growth: {:.2f}%".format(percentage*100))
@@ -67,12 +79,15 @@ def calculate():
         print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
     else:
         print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
+
 def findPercentage(iPrice, fPrice):
     decrease = float(fPrice) - float(iPrice)
     perc = float(decrease) / float(iPrice)  # I have to fix the math here, I assume!
     return perc
+
 def getAverage(*list):
     ave = sum(*list)/len(*list)
     print(*list)
     return ave
-logging.debug(calculateV2())
+
+calculateV2()
