@@ -25,28 +25,26 @@ def calculateV2():
 
 
 def calculate():
-    print("Hello! How much money did you invest into bitcoin?")
+    print("Hello! How much money did you invest into Bitcoin?")
     investment = int(input())
-    print("At was price?")
+    print("At what price?")
     initialPrice = int(input())
-    print("What is the current price of bitcoin") #Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
+    print("What is the current price of Bitcoin?") #Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
     finalPrice = int(input())
 
     percentage = findPercentage(initialPrice,finalPrice)
     currValue = ((percentage) * investment) + investment
 
     if(currValue > investment):
-        print("You're current bitcoin is worth: " + str(float(currValue)) + " Currently a net profit!")
+        print("Your current bitcoin is worth: ${:,.2f}. Currently a net profit!".format(float(currValue)))
     elif(currValue == investment):
-        print("You're current bitcoin is worth: " + str(float(currValue)) + " You broke even.")
+        print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
     else:
-        print("You're current bitcoin is worth: " + str(float(currValue)) + " Currently a net loss.")
+        print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
 
-
-
-def findPercentage(initialPrice,finalPrice):
-    decrease = float(finalPrice) - float(initialPrice)
-    perc = (decrease/initialPrice) # I have to fix the math here, i assume!
+def findPercentage(iPrice,fPrice):
+    decrease = float(fPrice) - float(iPrice)
+    perc = float(decrease/iPrice) # I have to fix the math here, i assume!
     return perc
 
 def getAverage(*list):
