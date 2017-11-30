@@ -6,11 +6,9 @@ def calculateV2():
     print("Enter number of investments you made")
     numOfInvestments = int(input())
     count = 1
-
     # Make an empty List
     cryptoPriceList = [numOfInvestments]
     investmentList = [numOfInvestments]
-
     # while loop from 1 to = number
     while (count <= numOfInvestments):
         print("What was the price of the Crypto currency at investment number " + str(int(count)))
@@ -20,7 +18,6 @@ def calculateV2():
         userInvestment = int(input())
         investmentList.append(userInvestment)
         count += 1
-
     #get the average from the lists
     aveCryptoPrice = getAverage(cryptoPriceList)
     aveUserInvestments = getAverage(investmentList)
@@ -37,7 +34,6 @@ def calculateV2():
         print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
     else:
         print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
-
 
 def calculate():
     print("Hello! How much money did you invest into Bitcoin?")
@@ -65,4 +61,3 @@ def getAverage(*list):
     ave = sum(*list)/len(*list)
     return ave
 logging.debug(calculateV2())
-
