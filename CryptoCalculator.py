@@ -7,6 +7,7 @@ def calculateV2():
     numOfInvestments = int(input())
     count = 1
     # Make an empty List
+
     cryptoPriceList = []
     print("cryptoPriceList: " + str(cryptoPriceList))
     investmentList = []
@@ -62,7 +63,8 @@ def calculate():
     if (currValue > investment):
         print("Your current bitcoin is worth: ${:,.2f}. Currently a net profit!".format(float(currValue)))
     elif (currValue == investment):
-        print("Your current bitcoin is worth: ${:,2f}. You broke even.".format(float(currValue)))
+
+        print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
     else:
         print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
 def findPercentage(iPrice, fPrice):
