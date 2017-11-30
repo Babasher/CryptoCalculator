@@ -1,7 +1,5 @@
 import logging
-
 logging.basicConfig(level=logging.DEBUG)
-
 
 def calculateV2():
     # user input a number
@@ -10,17 +8,35 @@ def calculateV2():
     count = 1
 
     # Make an empty List
+    cryptoPriceList = [numOfInvestments]
     investmentList = [numOfInvestments]
 
     # while loop from 1 to = number
     while (count <= numOfInvestments):
-        print("Enter investment number " + str(int(count)))
-        investment = int(input())
-        investmentList.append(investment)
+        print("What was the price of the Crypto currency at investment number " + str(int(count)))
+        cryptoPrice = int(input())
+        cryptoPriceList.append(cryptoPrice)
+        print("How much did you invest at investment number " + str(int(count)))
+        userInvestment = int(input())
+        investmentList.append(userInvestment)
         count += 1
 
+    #get the average from the lists
+    aveCryptoPrice = getAverage(cryptoPriceList)
+    aveUserInvestments = getAverage(investmentList)
 
-# logging.debug(calculateV2())
+    print(
+        "What is the current price of Bitcoin?")  # Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
+    finalPrice = int(input())
+    percentage = findPercentage(aveCryptoPrice, finalPrice)
+    currValue = ((percentage) * aveUserInvestments) + aveUserInvestments
+
+    if (currValue > aveUserInvestments):
+        print("Your current bitcoin is worth: ${:,.2f}. Currently a net profit!".format(float(currValue)))
+    elif (currValue == aveUserInvestments):
+        print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
+    else:
+        print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
 
 
 def calculate():
@@ -41,29 +57,12 @@ def calculate():
         print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
     else:
         print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
-
-
 def findPercentage(iPrice, fPrice):
     decrease = float(fPrice) - float(iPrice)
-    perc = float(decrease / iPrice)  # I have to fix the math here, i assume!
+    perc = float(decrease / iPrice)  # I have to fix the math here, I assume!
     return perc
-
-
 def getAverage(*list):
-    sum = 0
-    counter = 0
-    for x in list:
-        counter += 1
-        sum += x
-    return sum / counter
+    ave = sum(*list)/len(*list)
+    return ave
+logging.debug(calculateV2())
 
-    # logging.debug(getAverage(5,66,2))
-
-
-
-<<<<<<< HEAD
-    # calculate()
-=======
-#calculate()
-
->>>>>>> 62817d21b344aeb5e61e67374629c02977f428cd
