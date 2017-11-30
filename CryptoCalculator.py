@@ -61,4 +61,9 @@ def getAverage(*list):
 
 
 
+<<<<<<< HEAD
     # calculate()
+=======
+#calculate()
+
+>>>>>>> 62817d21b344aeb5e61e67374629c02977f428cd
