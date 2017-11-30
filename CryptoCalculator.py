@@ -61,4 +61,4 @@ def getAverage(*list):
 
 
 
-#calculate()
+calculate()
