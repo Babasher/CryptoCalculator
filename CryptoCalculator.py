@@ -90,4 +90,12 @@ def getAverage(*list):
     print(*list)
     return ave
 
+'''
+With the below we can ask for an input() to select which crypto they would like to determine the value and growth of:
+
+cryptoOptions = [(1, "BTC"), (2, "ETH"), (3, "LTC")]
+def selectCrypto(userChoice):
+  return [choice for (option, choice) in cryptoOptions if userChoice == option]
+'''
+
 calculateV2()
