@@ -2,11 +2,21 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
-def cryptoOptions():
+def cryptoSelect():
     print("Please enter: 1 for Bitcoin")
     print("Please enter: 2 for ETH")
     print("Please enter: 3 for LTC")
-    userInput = input()
+    userInput = int(input())
+
+    while userInput < 1 or userInput > 3:
+        garbage = userInput
+
+        print(str(garbage) + " is not a valid option;\n"
+        "Please enter: 1 for Bitcoin \n"
+        "Please enter: 2 for ETH \n"
+        "Please enter: 3 for LTC ")
+
+        userInput = int(input())
 
     cryptoOptions = [(1, "BTC"), (2, "ETH"), (3, "LTC")]
     def selectCrypto(userChoice):
@@ -14,7 +24,8 @@ def cryptoOptions():
 
     print(selectCrypto(userInput))
 
-cryptoOptions()
+cryptoSelect()
+
 
 
 
