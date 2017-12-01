@@ -78,15 +78,15 @@ def calculateV2(userInput):
     print("Percentage Growth: {:.2f}%".format(percentage*100))
     currValue = ((percentage) * aveUserInvestments) + aveUserInvestments
     
-    results(currValue, aveUserInvestments)
+    results(currValue, aveUserInvestments,userInput)
 
-def results(x, y):
+def results(x, y, typeOf):
     if (x > y):
-        print("Your current bitcoin is worth: ${:,.2f}. Currently a net profit!".format(float(x)))
+        print("Your current "+ typeOf + " is worth: ${:,.2f}. Currently a net profit!".format(float(x)))
     elif (x == y):
-        print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(x)))
+        print("Your current "+ typeOf + " is worth: ${:,.2f}. You broke even.".format(float(x)))
     else:
-        print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(x)))
+        print("Your current "+ typeOf + " is worth: ${:,.2f}. Currently a net loss.".format(float(x)))
 
 def calculate():
     print("Hello! How much money did you invest into Bitcoin?")
