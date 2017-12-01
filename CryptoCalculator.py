@@ -2,6 +2,9 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 
+def run():
+    cryptoSelect()
+
 def cryptoSelect():
     print("Please enter: 1 for Bitcoin")
     print("Please enter: 2 for ETH")
@@ -22,16 +25,13 @@ def cryptoSelect():
     def selectCrypto(userChoice):
         return [choice for (option, choice) in cryptoOptions if userChoice == option]
 
-    print(selectCrypto(userInput))
-
-cryptoSelect()
-
+    print("You have selected " + str(selectCrypto(userInput)) + " as your Crypto Currency.")
+    calculateV2(str(selectCrypto(userInput)))
 
 
-
-def calculateV2():
+def calculateV2(userInput):
     # user input a number
-    print("Enter number of investments you made")
+    print("Enter number of investments you made for " + userInput)
     numOfInvestments = int(input())
     count = 1
 
@@ -44,7 +44,7 @@ def calculateV2():
 
     # while loop from 1 to = number
     while (count <= numOfInvestments):
-        print("What was the price of the Crypto currency at investment number " + str(int(count)))
+        print("What was the price of " + userInput +" at investment number " + str(int(count)))
         cryptoPrice = float(input())
         #print("cryptoPrice:" + str(cryptoPrice)) #NOT SURE IF YOU WANTED TO KEEP THIS IN FINAL PRODUCT OR NOT
         cryptoPriceList.append(cryptoPrice)
@@ -59,9 +59,9 @@ def calculateV2():
     print()
 
     #get the average from the lists
-    print("CRYPTO PRICES")
+    print(userInput + " PRICES")
     aveCryptoPrice = getAverage(cryptoPriceList)
-    print("Average Crypto Price: " + str(aveCryptoPrice))
+    print("Average " + userInput + " Price: " + str(aveCryptoPrice))
     print()
 
     print("YOUR INVESTMENTS")
@@ -70,7 +70,7 @@ def calculateV2():
     print()
 
     print(
-        "What is the current price of Bitcoin?")  # Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
+        "What is the current price of " + userInput)  # Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
     finalPrice = float(input())
     print()
     print("Final Price: ${:,.2f}".format(finalPrice))
@@ -118,4 +118,5 @@ def getAverage(*list):
     print(*list)
     return ave
 
+run()
 #calculateV2()
