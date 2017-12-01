@@ -1,6 +1,23 @@
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
+
+def cryptoOptions():
+    print("Please enter: 1 for Bitcoin")
+    print("Please enter: 2 for ETH")
+    print("Please enter: 3 for LTC")
+    userInput = input()
+
+    cryptoOptions = [(1, "BTC"), (2, "ETH"), (3, "LTC")]
+    def selectCrypto(userChoice):
+        return [choice for (option, choice) in cryptoOptions if userChoice == option]
+
+    print(selectCrypto(userInput))
+
+cryptoOptions()
+
+
+
 def calculateV2():
     # user input a number
     print("Enter number of investments you made")
@@ -90,12 +107,4 @@ def getAverage(*list):
     print(*list)
     return ave
 
-'''
-With the below we can ask for an input() to select which crypto they would like to determine the value and growth of:
-
-cryptoOptions = [(1, "BTC"), (2, "ETH"), (3, "LTC")]
-def selectCrypto(userChoice):
-  return [choice for (option, choice) in cryptoOptions if userChoice == option]
-'''
-
-calculateV2()
+#calculateV2()
