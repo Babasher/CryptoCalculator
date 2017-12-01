@@ -1,3 +1,6 @@
+#Author: Omar Mohammed
+#Author: Arthur Ohumukini
+#11/30/2017
 import logging
 logging.basicConfig(level=logging.DEBUG)
 
@@ -26,10 +29,9 @@ def cryptoSelect():
         return [choice for (option, choice) in cryptoOptions if userChoice == option]
 
     print("You have selected " + str(selectCrypto(userInput)) + " as your Crypto Currency.")
-    calculateV2(str(selectCrypto(userInput)))
+    calculate(str(selectCrypto(userInput)))
 
-
-def calculateV2(userInput):
+def calculate(userInput):
     # user input a number
     print("Enter number of investments you made for " + userInput)
     numOfInvestments = int(input())
@@ -87,26 +89,6 @@ def results(x, y, typeOf):
         print("Your current "+ typeOf + " is worth: ${:,.2f}. You broke even.".format(float(x)))
     else:
         print("Your current "+ typeOf + " is worth: ${:,.2f}. Currently a net loss.".format(float(x)))
-
-def calculate():
-    print("Hello! How much money did you invest into Bitcoin?")
-    investment = int(input())
-    print("At what price?")
-    initialPrice = int(input())
-    print(
-        "What is the current price of Bitcoin?")  # Later on we'll implement a scraper to grab the current price of bitcoin or whichever crypto!
-    finalPrice = int(input())
-
-    percentage = findPercentage(initialPrice, finalPrice)
-    currValue = ((percentage) * investment) + investment
-
-    if (currValue > investment):
-        print("Your current bitcoin is worth: ${:,.2f}. Currently a net profit!".format(float(currValue)))
-    elif (currValue == investment):
-
-        print("Your current bitcoin is worth: ${:,.2f}. You broke even.".format(float(currValue)))
-    else:
-        print("Your current bitcoin is worth: ${:,.2f}. Currently a net loss.".format(float(currValue)))
 
 def findPercentage(iPrice, fPrice):
     decrease = float(fPrice) - float(iPrice)
