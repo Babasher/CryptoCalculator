@@ -2,8 +2,18 @@
 #Author: Arthur Ohumukini
 #11/30/2017
 import logging
+import requests
 logging.basicConfig(level=logging.DEBUG)
 
+main_api = 'https://api.coinbase.com/v2/prices/BTC-USD/buy'
+headers = {'CB-VERSION': '2017-12-19'}
+json_data = requests.get(main_api, headers = headers).json()
+
+print(json_data["data"]["amount"])
+
+
+
+#currBTC = r.json()
 
 def run():
     cryptoSelect()
@@ -102,3 +112,4 @@ def getAverage(*list):
 
 run()
 #calculateV2()
+
